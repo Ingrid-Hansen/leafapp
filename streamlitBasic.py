@@ -7,7 +7,11 @@ from PIL import Image
 from pathlib import Path
 import random
 from fastai.learner import load_learner
+import pathlib
 
+
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
 
 st.set_page_config(page_title="Leaf Classifier", page_icon="🍃", layout="wide")
@@ -95,7 +99,7 @@ with Model:
         st.header("Classify your image")
 
         #model = load_learner('./export.pkl')
-        model_path = Path('./convertedmodel.pkl')
+        model_path = Path('./export.pkl')
         model = load_learner(model_path)
         class_names = model.dls.vocab
         #upload images
