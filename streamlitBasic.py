@@ -95,7 +95,7 @@ with Model:
         st.header("Classify your image")
 
         #model = load_learner('./export.pkl')
-        model_path = Path('./export.pkl')
+        model_path = Path('./convertedmodel.pkl')
         model = load_learner(model_path)
         class_names = model.dls.vocab
         #upload images
